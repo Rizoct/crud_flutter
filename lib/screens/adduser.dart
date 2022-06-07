@@ -51,7 +51,8 @@ class _AddUserPage extends State<AddUserPage> {
                   fixedSize: Size(50, 50)),
               onPressed: () {
                 final name = controllerName.text;
-                createUser(name: name);
+                final age = controllerAge.text;
+                createUser(name: name, age: age);
               },
               child: const Text('Add User'),
             ),
@@ -61,13 +62,13 @@ class _AddUserPage extends State<AddUserPage> {
     );
   }
 
-  Future createUser({required String name}) async {
+  Future createUser({required String name, age}) async {
     await Firebase.initializeApp();
     final docUser = FirebaseFirestore.instance.collection('users').doc();
     final json = {
       'id': docUser.id,
       'name': name,
-      'age': 28,
+      'age': age,
       'birthdate': DateTime(2001, 10, 27),
     };
     await docUser.set(json);

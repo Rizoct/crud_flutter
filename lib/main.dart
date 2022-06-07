@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/adduser.dart';
+import 'screens/showuser.dart';
 import 'drawers/mainDrawer.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Main Menu'),
     );
   }
 }
@@ -35,16 +36,166 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      body: Container(
+          width: double.infinity,
+          child: ListView(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: Container(
+                  width: double.infinity,
+                  height: 150,
+                  color: Colors.black,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    child: Card(
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (contexet) =>
+                                        const ShowUserPage()));
+                          },
+                          child: SizedBox(
+                            width: 150,
+                            height: 110,
+                            child: Center(
+                              child: ListView(
+                                  shrinkWrap: true,
+                                  padding: const EdgeInsets.all(20.0),
+                                  children: const [
+                                    Icon(
+                                      Icons.people,
+                                      color: Colors.blue,
+                                      size: 30.0,
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Center(
+                                      child: Text('Show All User'),
+                                    )
+                                  ]),
+                            ),
+                          ),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Card(
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            debugPrint('card 2 tapped');
+                          },
+                          child: SizedBox(
+                            width: 150,
+                            height: 110,
+                            child: Center(
+                              child: ListView(
+                                  shrinkWrap: true,
+                                  padding: const EdgeInsets.all(20.0),
+                                  children: const [
+                                    Icon(
+                                      Icons.edit,
+                                      color: Colors.blue,
+                                      size: 30.0,
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Center(
+                                      child: Text('Manage User'),
+                                    )
+                                  ]),
+                            ),
+                          ),
+                        )),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    child: Card(
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            debugPrint('card 3 tapped');
+                          },
+                          child: const SizedBox(
+                            width: 150,
+                            height: 110,
+                            child: Center(child: Text('Button 3')),
+                          ),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Card(
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            debugPrint('card 4 tapped');
+                          },
+                          child: const SizedBox(
+                            width: 150,
+                            height: 110,
+                            child: Center(child: Text('Button 4')),
+                          ),
+                        )),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    child: Card(
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.blue.withAlpha(30),
+                          onTap: () {
+                            debugPrint('card 5 tapped');
+                          },
+                          child: const SizedBox(
+                            width: 320,
+                            height: 110,
+                            child: Center(child: Text('Button 5')),
+                          ),
+                        )),
+                  ),
+                ],
+              ),
+            ],
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(context,
             MaterialPageRoute(builder: (contexet) => const AddUserPage())),
