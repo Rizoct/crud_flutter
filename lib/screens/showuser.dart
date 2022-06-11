@@ -48,8 +48,8 @@ class _ShowUserPage extends State<ShowUserPage> {
                     return Card(
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: ListTile(
-                        title: Text(
-                            'My Name is ${data.docs[index]['name']} and my age is ${data.docs[index]['age']}'),
+                        title: Text('Name : ${data.docs[index]['name']}'),
+                        subtitle: Text('Age : ${data.docs[index]['age']}'),
                       ),
                       elevation: 2,
                     );
