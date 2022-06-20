@@ -72,5 +72,25 @@ class _AddUserPage extends State<AddUserPage> {
       'birthdate': DateTime(2001, 10, 27),
     };
     await docUser.set(json);
+    await alertDialog();
+  }
+
+  Future<dynamic> alertDialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Done'),
+            content: const Text('Add Success'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
   }
 }

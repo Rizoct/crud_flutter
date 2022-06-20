@@ -5,13 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 CollectionReference users_data = FirebaseFirestore.instance.collection('users');
 
-Widget continueButton = TextButton(
-  child: Text("Continue"),
-  onPressed: () {},
-);
-
 Future<void> deleteUser(userId) {
-  print("$userId");
   return users_data
       .doc("$userId")
       .delete()
@@ -52,10 +46,10 @@ class _ShowUserPage extends State<ShowUserPage> {
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
-                return Text('Something Went Wrong');
+                return const Text('Something Went Wrong');
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Text('Loading');
+                return const Text('Loading');
               }
 
               final data = snapshot.requireData;

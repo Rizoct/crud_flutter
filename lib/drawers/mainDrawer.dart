@@ -30,22 +30,16 @@ class MainDrawer extends StatelessWidget {
             const SizedBox(
               height: 24,
             ),
+            buildMenuItem(text: 'People', icon: Icons.people, navigate: () {}),
             buildMenuItem(
-              text: 'People',
-              icon: Icons.people,
-            ),
+                text: 'Favorites',
+                icon: Icons.favorite_border,
+                navigate: () {}),
             buildMenuItem(
-              text: 'Favorites',
-              icon: Icons.favorite_border,
-            ),
-            buildMenuItem(
-              text: 'Workflow',
-              icon: Icons.workspaces_outline,
-            ),
-            buildMenuItem(
-              text: 'Updates',
-              icon: Icons.update,
-            ),
+                text: 'Workflow',
+                icon: Icons.workspaces_outline,
+                navigate: () {}),
+            buildMenuItem(text: 'Updates', icon: Icons.update, navigate: () {}),
             const SizedBox(
               height: 24,
             ),
@@ -54,13 +48,14 @@ class MainDrawer extends StatelessWidget {
               height: 24,
             ),
             buildMenuItem(
-              text: 'Settings',
-              icon: Icons.settings,
-            ),
+                text: 'Settings', icon: Icons.settings, navigate: () {}),
             buildMenuItem(
-              text: 'Logout',
-              icon: Icons.logout,
-            ),
+                text: 'Logout',
+                icon: Icons.logout,
+                navigate: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }),
           ],
         ),
       ),
@@ -70,6 +65,7 @@ class MainDrawer extends StatelessWidget {
   Widget buildMenuItem({
     required String text,
     required IconData icon,
+    required VoidCallback navigate,
   }) {
     final color = Colors.white;
     final hoverColor = Colors.white70;
@@ -84,7 +80,7 @@ class MainDrawer extends StatelessWidget {
         style: TextStyle(color: color),
       ),
       hoverColor: hoverColor,
-      onTap: () {},
+      onTap: navigate,
     );
   }
 
